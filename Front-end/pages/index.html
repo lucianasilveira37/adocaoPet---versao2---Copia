@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adote um Pet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+  <style>
+    /* Navbar pastel suave */
+.navbar {
+  background-color: #b9d8c2 !important;
+}
+
+.navbar .nav-link {
+  transition: color 0.3s;
+  color: #356859;
+}
+
+.navbar .nav-link:hover {
+  color: #283a33 !important;
+}
+
+/* Container geral max-width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Título principal "Amigo Pet" */
+#amigoPetTitle {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #356859;
+  text-align: center;
+  margin: 2rem 0 3rem;
+  letter-spacing: 3px;
+  text-shadow: 0 1px 3px rgba(112, 98, 98, 0.1);
+}
+
+/* Grid dos cards com Bootstrap (flex-wrap) */
+#adoptedPetsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0 1rem 1rem;
+}
+
+/* Card estilizado pastel */
+.card {
+  background-color: #fff8f0; /* tom pastel claro */
+  color: #333;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  font-size: 0.95rem;
+}
+
+.card-footer {
+  background-color: #fdf4ec;
+  font-size: 0.85rem;
+}
+
+.card-img-top {
+  border-bottom: 4px solid #f7b2ad; /* tom rosa pastel */
+  display: flex;
+}
+
+/* Botão Adotado */
+.card-footer button {
+  background-color: #e21111;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: default;
+  transition: background-color 0.3s;
+}
+
+.card-footer button:disabled {
+  opacity: 0.8;
+}
+
+/* Título secundário estilo */
+h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  color: #356859;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* Carrossel - deixa fundo mais suave */
+#newsCarousel {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(54, 89, 73, 0.2);
+}
+
+/* Carousel overlay texto */
+.carousel-item .card-img-overlay {
+  background-color: rgba(127, 182, 133, 0.6);
+  padding: 1rem 1.5rem;
+  border-radius: 0 0 15px 15px;
+}
+
+.carousel-item .card-title, .carousel-item .card-text {
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Footer */
+.footer {
+  background-color: #b9d8c2 !important;
+  color: #356859 !important;
+  transition: color 0.3s;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: inset 0 1px 5px rgba(163, 190, 178, 0.1);
+}
+
+.footer a {
+  color: #356859;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #2e4739;
+}
+
+/* Responsividade para cards */
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+  }
+}
+
+/* Ajustando a altura das imagens no carrossel */
+.carousel-item img {
+      object-fit: cover;
+      height: 600px; /* Ajuste a altura conforme necessário */
+      width: 100%;
+    }
+
+    /* Estilizando o card de notícias */
+    .carousel-item .card-img-overlay {
+      background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+      padding: 15px;
+    }
+
+    .carousel-item .card-title, .carousel-item .card-text {
+      color: white;
+    }
+
+    .hover-effect:hover {
+    color: #0d6efd !important;
+    transform: translateY(-2px);
+    transition: 0.3s;
+  }
+  .badge-adopted {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: crimson;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+   
+     .footer { 
+  background-color: #d0f0d8 !important;
+  color: #207a4b !important;
+  transition: color 0.3s;
+}
+.card {
+  background-color: #141414;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 4px solid #e50914;
+}
+  body {
+    padding-top: 80px; /* ajuste conforme a altura real do seu menu */
+  }
+  </style>
+</head>
+<body class="fundo">
+ <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center me-4" href="#">
+        <img src="images/logadocaopet.png" alt="Logo" height="50" class="me-2 rounded-circle">
+        <span class="fw-bold fs-4 text-primary">Amigo Pet</span>
+      </a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav align-items-center gap-2 me-auto">
+
+        
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-dark hover-effect" href="Quem-somos.html">
+              <i class="bi bi-info-circle-fill text-primary me-1"></i>Quem somos
+            </a>
+          </li>
+
+          <li class="nav-item">
+  <a id="menu-quer-adotar" class="nav-link fs-5 text-dark hover-effect" href="#">
+    <i class="bi bi-heart-fill text-danger me-1"></i>Quero adotar
+  </a>
+</li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 text-dark hover-effect" href="quer-ajudar.html">
+              <i class="bi bi-hand-thumbs-up-fill text-success me-1"></i>Quero ajudar
+            </a>
+          </li>
+         <li class="nav-item">
+  <a id="menu-cadastrar-pet" class="nav-link fs-5 text-dark hover-effect" href="#">
+    <i class="bi bi-plus-circle-fill text-warning me-1"></i>Cadastrar Pet
+  </a>
+</li>
+           <li class="nav-item">
+  <a class="nav-link fs-5 text-dark hover-effect" href="identidadepet.html">
+    <i class="bi bi-person-badge text-warning me-1"></i>Criar RG do Pet
+  </a>
+</li>
+        </ul>
+  
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold" href="login.html">
+            <i class="bi bi-box-arrow-in-right me-1"></i>Entrar
+          </a>
+          <a class="btn btn-primary rounded-pill px-4 py-2 fw-semibold" href="register.html">
+            <i class="bi bi-person-plus-fill me-1"></i>Cadastre-se
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+<!-- Início da seção com fundo verde pastel -->
+<!-- Início da seção com fundo verde pastel -->
+<div style="background-color: #d0f0c0; padding: 2rem 0;">
+  <div class="container my-5">
+    <h2 class="mb-4">Últimas Notícias</h2>
+    
+    <!-- ✅ Carrossel com tempo de transição de 7 segundos -->
+    <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+      <div class="carousel-inner" id="carousel-news">
+        <!-- Itens do carrossel serão inseridos aqui via JS -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+
+<div id="amigoPetTitle">Aqui alguns dos nosso pets ja adotados, faça seu cadstro 
+  e seja mais uma a fazer um pet feliz e deixar ele mostrar o quanto ele poderá te fazer feliz</div>
+ <div class="d-flex justify-content-center">
+  <a class="btn btn-primary rounded-pill px-4 py-2 fw-semibold" href="register.html">
+    <i class="bi bi-person-plus-fill me-1"></i>Cadastre-se
+  </a>
+</div>
+</div>
+<div id="adoptedPetsList">
+  <div class="card">
+    <img class="card-img-top" src="pet1.jpg" alt="Pet 1">
+    <div class="card-body">Chimbinha</div>
+  </div>
+  
+  <div class="card">
+    <img class="card-img-top" src="pet2.jpg" alt="Pet 2">
+    <div class="card-body">Mia</div>
+  </div>
+  <!-- ... mais cards ... -->
+</div>
+
+
+
+  <!-- Rodapé -->
+   
+  <footer class="footer pt-5 pb-4 mt-5 border-top shadow-sm">
+    <div class="container text-center text-md-start">
+      <div class="row">
+  
+        <!-- Logo e redes sociais -->
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold mb-3">
+            <img src="images/logadocaopet.png" height="40" alt="Logo" class="me-2 rounded-circle">
+            Amigo Pet
+          </h5>
+          <p class="text-muted">Cuidando de vidas com amor e responsabilidade. Junte-se a nós!</p>
+          <div class="d-flex gap-3 justify-content-center justify-content-md-start mt-3">
+            <a href="https://www.facebook.com/share/1LtseSP2g1/" target="_blank" class="text-primary fs-4">
+  <i class="bi bi-facebook"></i>
+</a>
+
+           <a href="https://www.instagram.com/amigopet860" target="_blank" class="text-danger fs-4">
+            <i class="bi bi-instagram"></i>
+              </a>
+            <a href="https://wa.me/5588993070295" target="_blank" class="text-success fs-4">
+  <i class="bi bi-whatsapp"></i>
+</a>
+          </div>
+        </div>
+  
+       
+  
+        <!-- Contato rápido -->
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold mb-3">Fale Conosco</h5>
+          <p><i class="bi bi-envelope-fill me-2"></i> amigopet37@gmail.com</p>
+          <p><i class="bi bi-geo-alt-fill me-2"></i> Jaguaruana-Ce</p>
+          <p><i class="bi bi-phone-fill me-2"></i> (88) 99307-0295</p>
+        </div>
+  
+      </div>
+  
+      <hr>
+      <div class="text-center small text-muted">
+        © 2025 Amigo Pet. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3/build/jwt-decode.min.js"></script>
+  
+  <script src="../js/index.js"></script>
+ 
+</body>
+</html>
