@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exemplo Twemoji</title>
+  <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+</head>
+<body>
+
+  <p id="emoji-text">Aqui está um emoji: 😀 🚀 🐶</p>
+
+  <script>
+    // Pega o elemento que contém os emojis
+    const emojiElement = document.getElementById('emoji-text');
+
+    // Faz o parse da string com emojis, substituindo por imagens SVG
+    emojiElement.innerHTML = twemoji.parse(emojiElement.textContent);
+
+    // Se quiser, pode passar um segundo parâmetro para escolher o formato:
+    // twemoji.parse(text, { folder: 'svg', ext: '.svg' });
+  </script>
+</body>
+</html>
