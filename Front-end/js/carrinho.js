@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pet = allPets.find(p => p.id == petId);
 const petName = pet ? pet.name : "seu pet";
 
-const rawMessage = `🐾 Oi, tudo bem? ❤️ Estou interessado(a) em adotar seu pet ${petName} 🐶🐱 anunciado aqui no Amigo Pet! 🐾`;
+const rawMessage = `<span>Oi, tudo bem?</span><p>0xE2</p><span> Estou interessado(a) em adotar seu pet ${petName} 🐶🐱 anunciado aqui no Amigo Pet! 🐾</span>`;
 const message = encodeURIComponent(rawMessage);
 window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
     } catch (error) {

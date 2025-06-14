@@ -15,7 +15,7 @@ class PetRepository {
       pet.city_id,
       pet.description,
       pet.avatar,
-      pet.tutor_id,
+      pet.tutor,
       pet.castrated,
       pet.vaccinated,
       pet.vermifugate,
@@ -39,7 +39,7 @@ class PetRepository {
 
     const query = `
       INSERT INTO pet (
-        name, specie, sex, age, size, state_id, city_id, description, avatar, tutor_id,
+        name, specie, sex, age, size, state_id, city_id, description, avatar, tutor,
         castrated, vaccinated, vermifugate, need_special_care,
         docile, aggressive, calm, playful, sociable, aloof, independent, needy,
         friendly_with_house_with_backyard, friendly_with_apartment,

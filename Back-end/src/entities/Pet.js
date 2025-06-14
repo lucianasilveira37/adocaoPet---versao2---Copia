@@ -9,7 +9,7 @@ class Pet {
       city_id,
       description,
       avatar,
-      tutor_id,
+      tutor,
   
       // Cuidados veterinários
       castrated,
@@ -49,7 +49,7 @@ class Pet {
       this.city_id = city_id;
       this.description = description;
       this.avatar = avatar;
-      this.tutor_id = tutor_id;
+      this.tutor = tutor;
   
       // Cuidados veterinários
       this.castrated = castrated;

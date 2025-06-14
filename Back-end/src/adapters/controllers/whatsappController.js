@@ -14,11 +14,11 @@ async function getTutorPhoneByPetId(req, res) {
 
     const phoneObj = await whatsappService.getTutorPhoneByPetId(petId);
 
-    if (!phoneObj || !phoneObj.tutor_id) {
+    if (!phoneObj || !phoneObj.tutor) {
       return res.status(404).json({ error: 'Número do tutor não encontrado' });
     }
 
-    return res.json({ phone: phoneObj.tutor_id });
+    return res.json({ phone: phoneObj.tutor });
   } catch (error) {
     console.error('Erro no getTutorPhoneByPetId:', error);
     return res.status(500).json({ error: 'Erro ao buscar número do tutor' });
